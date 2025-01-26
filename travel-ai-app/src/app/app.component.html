@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>City Travel Recommendations</h1>
+  <label for="city">City:</label>
+  <input
+    id="city"
+    type="text"
+    [(ngModel)]="city"
+    placeholder="Enter a city name"
+  />
+
+  <label for="days">Days:</label>
+  <input
+    id="days"
+    type="number"
+    [(ngModel)]="days"
+    placeholder="Enter number of days"
+    min="1"
+  />
+
+  <button (click)="fetchRecommendations()">Get Recommendations</button>
+
+  @if(recommendations) {
+    <div>
+      <h2>Recommendations:</h2>
+      <p>{{ recommendations }}</p>
+    </div>
+  }
+</div>
