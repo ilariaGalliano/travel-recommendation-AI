@@ -20,9 +20,6 @@
   <button (click)="fetchRecommendations()">Get Recommendations</button>
 
   @if(recommendations) {
-    <div>
-      <h2>Recommendations:</h2>
-      <p>{{ recommendations }}</p>
-    </div>
+    <div class="recommendations" [innerHTML]="recommendations"></div>
   }
 </div>

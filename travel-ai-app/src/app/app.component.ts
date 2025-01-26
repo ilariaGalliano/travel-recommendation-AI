@@ -20,12 +20,16 @@ export class AppComponent {
     if (this.city && this.days > 0) {
       this.recommendationsService.getRecommendations(this.city, this.days).subscribe(
         (response) => {
-          this.recommendations = response.itinerary;
+          this.recommendations = this.formatItinerary(response.itinerary);
         },
         (error) => {
           console.error('Error fetching recommendations:', error);
         }
       );
     }
+  }
+
+  formatItinerary(itinerary: string): string {
+    return itinerary.replace(/##/g, '<h2>').replace(/\*\*/g, '<strong>').replace(/\*/g, '<em>');
   }
 }
